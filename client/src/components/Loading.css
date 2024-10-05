@@ -1,0 +1,25 @@
+@keyframes rl-loading {
+    0% {}
+    20% {
+        background: white;
+        transform: scale(1.5);
+    }
+    40% {
+        background: #41f3fd;
+        transform: scale(1);
+    }
+}
+
+.animate-loading-1 {
+    animation: rl-loading 1.5s ease-in-out infinite;
+}
+
+.animate-loading-2 {
+    animation: rl-loading 1.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+.animate-loading-3 {
+    animation: rl-loading 1.5s ease-in-out infinite;
+    animation-delay: 1s;
+}

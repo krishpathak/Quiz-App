@@ -23,3 +23,20 @@
 11. Feedback on Answers:
 - Users can review which answers were correct or incorrect post-quiz.
 
+## Installation
+1. Navigate to client directory and install dependencies.
+   ```
+   cd client
+   npm install
+   ```
+
+2. Start the client
+   ```
+   npm start
+   ```
+3. Navigate to server directory and start the server.
+   ```
+   cd server
+   nodemon index.js
+   ```
+

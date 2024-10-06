@@ -1,4 +1,4 @@
-#Quizzy
+# Quizzy
 
 1. OTP-Based Authentication:
 - Secure login through one-time password verification.

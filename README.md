@@ -40,3 +40,22 @@
    nodemon index.js
    ```
 
+4. Navigate through the client directory and create a file named .env.local
+   ```
+   REACT_APP_GOOGLE_GENERATIVE_API=your_api_key
+   ```
+5. Navigate to server directory and create a file named .env
+   ```
+   CLIENT_ID=your_client_id
+   CLIENT_SECRET=your_client_secret
+   CALLBACK_URL=callback_url
+   REDIRECT_URL=redirect_url
+   JWT_SECRET=your_jwt_secret
+   EMAIL_ID=your_email
+   PASSWORD=your_password
+   MONGO_URL=your_mongo_atlas_uri
+   ```
+
+Video link:[link](https://asset.cloudinary.com/dvpvxjcfk/2af4da87c11cda69131b44ad7e7600b0)
+   
+

@@ -177,7 +177,7 @@ router.post('/signup', [
 
         await user.save();
         const authToken = jwt.sign(data, JWT_SECRET, { expiresIn: '7 days' })
-        console.log(authToken);
+        // console.log(authToken);
         res.redirect(`/createToken/${authToken}`)
 
 

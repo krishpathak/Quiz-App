@@ -80,7 +80,7 @@ const Register = ({registerOtp,setregisterOtp}) => {
         <label >Confirm Password:</label>
         <input type="password" className="border-2 border-slate-400 p-2 w-full mt-2 rounded focus:bg-slate-200 mb-4 text-black" id='cpassword' name='cpassword' placeholder='Confirm the password'onChange={handleOnChange}/>
         <input type='checkbox' className="border ml-1 mr-2" onChange={handleCheck}/>
-        <label >I ageee <a href='#' className='hover:text-blue-400'>terms and conditions</a></label>
+        <label >I ageee <a href='/tandc' className='hover:text-blue-400'>terms and conditions</a></label>
         <button className="block w-full p-3 rounded-lg text-white bg-blue-500 hover:bg-blue-600 mt-6 " onClick={handleSubmit}>Register</button>
         <Link to={BACKEND_URL+'auth/google'}><div><button className="block w-full p-3 mt-4 rounded-lg text-white bg-red-500 hover:bg-red-600">Sign up with Google</button></div></Link>
         <p className="text-center text-sm text-gray-400 mt-4">Already have an account? <a href='/login' className='hover:text-blue-400'>Login</a></p>

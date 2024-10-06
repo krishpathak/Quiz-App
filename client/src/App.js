@@ -14,6 +14,7 @@ import RandomQuiz from './pages/RandomQuiz';
 import Marks from './pages/Marks';
 import AnswerQuiz from './pages/AnswerQuiz';
 import EditQuiz from './pages/EditQuiz';
+import TandC from './pages/TandC';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path='/marks' element={<Marks marks={marks} qLength={qLength}/>}/>
         <Route path='/answer' element={<AnswerQuiz question={question} answer={answer}/>}/>
         <Route path='/edit/:id' element={<EditQuiz/>}/>
+        <Route path='/tandc' element={<TandC/>}/>
       </Routes>
     </Router>
   );

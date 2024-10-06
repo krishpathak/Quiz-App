@@ -37,6 +37,7 @@ const Login = () => {
                 body: JSON.stringify(credentials)
             });
             const json= await response.json();
+            console.log(json);
             if(json.message=='success'){
                 navigate('/')
             }

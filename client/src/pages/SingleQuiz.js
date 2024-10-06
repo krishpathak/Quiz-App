@@ -123,7 +123,7 @@ const SingleQuiz = () => {
         navigate(`/edit/${id}`)
     }
     const handleOnDelete = async (id) => {
-        const url =    BACKEND_URL+`quiz/delete/${id}`
+        const url = BACKEND_URL+`quiz/delete/${id}`
         const response = await fetch(url, {
             method: 'DELETE',
             headers: {

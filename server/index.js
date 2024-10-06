@@ -1,5 +1,6 @@
 require('./GoogleOAuth/googleoauth')
 const connectToMongo = require('./db');
+connectToMongo();
 const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser')
@@ -15,27 +16,27 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-         secure: false,
-         expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-         httpOnly: true
+         secure: true,
+         maxAge: 7 * 24 * 60 * 60 * 1000, 
+         httpOnly: false,
     }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors(
     {
-        origin: 'http://localhost:3000',
-        credentials: true,
+        origin: ['http://localhost:3000','https://quiz-app-client-pink.vercel.app/'],
+        method: ['GET','POST','PUT','DELETE'],
+        credentials: true
     }
 ))
-connectToMongo();
+
 
 app.get('/createToken/:token' ,(req,res)=>{
     try{
-    // console.log(req.params.token)
-    res.cookie('quiz_app_token',String(req.params.token),{
-         maxAge:24*60*60*7*1000*3,
-     }).json({message:"success"})
+        res.cookie('quiz_app_token', String(req.params.token), {
+            maxAge: 24 * 60 * 60 * 1000 * 3, 
+        }).json({ message: "success" });
     }catch(e){
         console.log(e);
         res.status(500).json({message:e.message})

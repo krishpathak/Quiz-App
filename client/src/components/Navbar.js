@@ -1,32 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BACKEND_URL from '../url';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const token = document.cookie.includes('quiz_app_token');
+    useEffect(() => {
+        console.log(document.cookie);
+    })
 
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-    const onHandleClick=()=>{{
-        navigate('/makequiz')
-    }}
-    const Logout=async ()=>{
-        const url=BACKEND_URL+'quiz/logout';
-        const response=await fetch(url,{
-            method:'POST',
+    const onHandleClick = () => {
+        {
+            navigate('/makequiz')
+        }
+    }
+    const Logout = async () => {
+        const url = BACKEND_URL + 'quiz/logout';
+        const response = await fetch(url, {
+            method: 'POST',
             headers: {
-                'Content-Type':'application/json',
+                'Content-Type': 'application/json',
             },
-            credentials:'include'
+            credentials: 'include'
         })
-        const json=await response.json();
+        const json = await response.json();
         navigate('/')
     }
-    const Login=()=>{
+    const Login = () => {
         navigate('/login')
+    }
+    const onHandleClick1 = () => {
+        navigate('/quizzes')
     }
     return (
         <div className='mb-16'>
@@ -36,10 +44,12 @@ const Navbar = () => {
 
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                         {token ? (
-                            <>
-                                <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 mr-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-300 hover:text-black transition-all duration-700  dark:focus:ring-blue-800" onClick={onHandleClick}>Make Quiz</button>
+                            <div className='flex fleex-row justify-between'>
+                                <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 mr-2 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-300 hover:text-black transition-all duration-700  dark:focus:ring-blue-800" onClick={onHandleClick1}>Take Quiz</button>
+                                <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 mr-2 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-300 hover:text-black transition-all duration-700  dark:focus:ring-blue-800" onClick={onHandleClick}>Make Quiz</button>
+
                                 <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-300 hover:text-black transition-all duration-700  dark:focus:ring-blue-800" onClick={Logout}>Logout</button>
-                            </>
+                            </div>
                         ) : (
                             <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-300 hover:text-black transition-all duration-700  dark:focus:ring-blue-800" onClick={Login}>Login</button>
                         )}
